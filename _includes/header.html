@@ -1,38 +1,40 @@
 <!-- Header -->
 <nav id="navbar-section" class="navbar navbar-default navbar-static-top navbar-sticky" role="navigation">
   <div class="container">
-  
-  <div class="navbar-header">
-    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
-      <span class="sr-only">Toggle navigation</span>
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-    </button>
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
 
-    <a class="navbar-brand wow fadeInDownBig" href="/day1doctor/"><img class="office-logo" src="/day1doctor/assets/img/slider/Office.png" alt="Office"></a>      
-  </div>
+      <!-- 用 relative_url 以适配 site.baseurl -->
+      <a class="navbar-brand wow fadeInDownBig" href="{{ '/' | relative_url }}">
+        <img class="office-logo" src="{{ '/assets/img/slider/Office.png' | relative_url }}" alt="Office">
+      </a>
+    </div>
 
-  <div id="navbar-spy" class="collapse navbar-collapse navbar-responsive-collapse">
-    <ul class="nav navbar-nav pull-right">
-      <li class="active">
-        <a href="/day1doctor/">Home</a>
-      </li>
-      <li>
-        <a href="/day1doctor/about.html">About</a>
-      </li>
-      <li>
-        <a href="/day1doctor/blog.html">Blog</a>
-      </li>
-      <li>
-        <a href="/day1doctor/team.html">Team</a>
-      </li>
-      <li>
-        <a href="/day1doctor/contact.html"><span>Contact</span></a>
-      </li>
-    </ul>         
-  </div>
+    <div id="navbar-spy" class="collapse navbar-collapse navbar-responsive-collapse">
+      <ul class="nav navbar-nav pull-right">
+        <li class="{% if page.url == '/' or page.url == '/index.html' %}active{% endif %}">
+          <a href="{{ '/' | relative_url }}">Home</a>
+        </li>
+        <li class="{% if page.url == '/about.html' %}active{% endif %}">
+          <a href="{{ '/about.html' | relative_url }}">About</a>
+        </li>
+        <li class="{% if page.url == '/blog.html' or page.url contains '/blog' %}active{% endif %}">
+          <a href="{{ '/blog.html' | relative_url }}">Blog</a>
+        </li>
+        <li class="{% if page.url == '/team.html' %}active{% endif %}">
+          <a href="{{ '/team.html' | relative_url }}">Team</a>
+        </li>
+        <li class="{% if page.url == '/contact.html' %}active{% endif %}">
+          <a href="{{ '/contact.html' | relative_url }}"><span>Contact</span></a>
+        </li>
+      </ul>
+    </div>
   </div>
 </nav>
-
 <!-- End Header -->
+
